@@ -1,6 +1,9 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <p>{{ heading }} en {{ computeProp }}</p>
+  <p>calculate this: {{calculate()}}</p>
+  <div v-html="html"></div>
+  <HelloWorld v-bind:list="list" v-bind:heading="heading"/>
 </template>
 
 <script>
@@ -8,6 +11,25 @@ import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
+  data() {
+    return {
+      heading: 'Heading',
+      html: '<h2>HTML content uit dataset</h2>',
+      list: ['Een', 'Twee']
+    }
+  },
+  computed: {
+     computeProp: {
+        get() {
+        return this.heading && 'computedProp';
+      }
+     }
+  },
+  methods: {
+    calculate() {
+      return 1 + 2;
+    }
+  },
   components: {
     HelloWorld
   }
