@@ -1,13 +1,13 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
   <p>{{ heading }} en {{ computeProp }}</p>
-  <p>calculate this: {{calculate()}}</p>
+  <p>calculate this: {{ calculate() }}</p>
   <div v-html="html"></div>
-  <HelloWorld v-bind:list="list" v-bind:heading="heading"/>
+  <firstComponent v-bind:list="list" v-bind:heading="heading"/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import firstComponent from './components/firstComponent.vue'
 
 export default {
   name: 'App',
@@ -31,7 +31,7 @@ export default {
     }
   },
   components: {
-    HelloWorld
+    firstComponent
   }
 }
 </script>
